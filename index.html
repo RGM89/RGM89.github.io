@@ -1,1 +1,200 @@
-<h1>あ</h1>
+<html>
+<head>
+<META charset="UTF-8">
+<title>自己紹介</title>
+<link rel="stylesheet"href="index.css">
+<script language="javascript">
+
+    var x  = 0 ;
+    var pv =   30 ;
+
+    var left  = 0 ;
+    var up    = 0 ;
+    var right = 0 ;
+    var down  = 0 ;
+    var space = 0 ;
+    
+    var img = new Array();
+    
+    img[0]=new Image();
+    img[0].src="Image1.png";
+    img[1]=new Image();
+    img[1].src="Image2.png";
+    img[2]=new Image();
+    img[2].src="Image3.png";
+    img[3]=new Image();
+    img[3].src="Image4.png";
+    img[4]=new Image();
+    img[4].src="Image5.png";
+    img[5]=new Image();
+    img[5].src="Image6.png";
+    img[6]=new Image();
+    img[6].src="Image7.png";
+    img[7]=new Image();
+    img[7].src="Image8.png";
+    
+    var cnt=0;
+
+    function keydown()
+    {
+        if(event.keyCode == 37)
+        {
+            left = 1;
+            
+            
+        }
+        if(event.keyCode == 39)
+        {
+            right = 1;
+        }
+
+        disp() ;
+        
+    }
+
+    function disp(){
+        if(left == 1){
+            if(x < 20){x = 0;}
+            else{x = x-pv;}
+        }
+        
+        if(right == 1){
+            if(x >= 1800){x=1820;}
+            else{x = x+pv;}
+        }
+
+    
+    document.getElementById("rockman").style.left = x;
+    
+    moji();
+        changeIMG();
+    
+    }
+    
+    function changeIMG(){
+        if(left==1){
+            if(cnt<4 || cnt>=7){
+                cnt=5;
+            }else{
+                cnt++;
+            }
+        }
+        
+        if(right==1){
+           if(cnt>=3){
+                cnt=1;
+            }else{
+                cnt++;
+            } 
+            
+        }
+        
+        document.getElementById("rockman2").src=img[cnt].src;
+        
+    }
+    
+    function moji(){
+//    if(x<300){
+//        document.getElementById("content0").style.visibility="visible";
+//    }else{
+//        document.getElementById("content0").style.visibility="hidden";
+//    }
+    if(300<x && x<600){
+        document.getElementById("content1").style.visibility="visible";
+    }else{
+        document.getElementById("content1").style.visibility="hidden";
+    }
+    if(600<x && x<900){
+        document.getElementById("content2").style.visibility="visible";
+    }else{
+        document.getElementById("content2").style.visibility="hidden";
+    }
+    if(900<x && x<1200){
+        document.getElementById("content3").style.visibility="visible";
+    }else{
+        document.getElementById("content3").style.visibility="hidden";
+    }
+    if(1200<x && x<1500){
+        document.getElementById("content4").style.visibility="visible";
+    }else{
+        document.getElementById("content4").style.visibility="hidden";
+    }
+    if(x>=1500){
+        document.getElementById("content5").style.visibility="visible";
+    }else{
+        document.getElementById("content5").style.visibility="hidden";
+    }
+    }
+    
+    
+function keyup(event)
+{
+  if(event.keyCode == 37)
+  {
+    left = 0;
+  }
+  if(event.keyCode == 39)
+  {
+    right = 0;
+  }
+    
+}
+</script>
+</head>
+<body background="素材3.png">
+<div id="hanten">
+<div id="rockman" style="POSITION:absolute;Z-INDEX:1;VISIBILITY:visible; BOTTOM:50px;LEFT:0px;">
+<img id="rockman2" src="Image1.png" width="96" height="96">
+</div>
+</div>
+<script language="javascript">
+    document.onkeydown = keydown ;
+    document.onkeyup   = keyup ;
+</script>
+
+<div id="content0">
+    <h1>自己紹介</h1>
+    わたしの自己紹介<br>
+    横移動 ← , →<br>
+    </div>
+    
+    <div id="content1">
+    <h2 class="shimei">氏名</h2>
+    <ul>
+        <li>RGM89</li>
+    </ul>
+    </div>
+    
+    <div id="content2">
+    <h2>出身</h2>
+    <ul>
+        <li>どこか</li>
+    </ul>
+    </div>
+    
+    <div id="content3">
+    <h2>好物</h2>
+    <ul>
+        <li>体に悪そうなもの</li>
+    </ul>
+    </div>
+    
+    <div id="content4">
+    <h2>趣味</h2>
+    <ul>
+        <li>ゲーム</li>
+        <li>アニメ</li>
+        <li>読書</li>
+    </ul>
+    </div>
+    
+    <div id="content5">
+    <h2>ゼミでチャレンジしてみたいこと</h2>
+    <ul>
+        <li>プログラミング言語の習得</li>
+    </ul>
+    </div>
+    
+
+</body>
+</html>
